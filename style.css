@@ -1,0 +1,84 @@
+body  
+{
+	margin:0px;
+	padding:0px;
+       background-color:#FFFFFF;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-attachment:fixed;
+    font-family: Calibri, Helvetica;
+    text-align:justify;
+}
+div.page
+{
+	margin-top:8px;
+	margin-left:auto; 
+	margin-right:auto;
+	padding:64px;
+	width:800px;
+       background-color:#FFFFFF;
+	border-style:solid;
+	border-width:1px;
+	border-color:#000000;
+	text-align:justify;
+}
+
+img.title
+{
+	border-radius:8px;
+	border-style:solid;
+	border-width:0px;
+	border-color:#000000; 
+}
+
+h1{ 
+  font-family: Calibria;
+  color: #5482AB;
+}
+
+h2{ 
+  font-family: Calibria;
+  color: #5482AB;
+}
+
+p
+{
+    text-align:justify;     
+}
+
+a
+{
+    color:#5482AB;   
+}
+
+.talkTitle {
+    font-size:120%;
+    font-weight:bold;
+}
+.downloads {
+    font-weight:bold;
+}
+.bio {
+    font-weight:bold;
+}
+tr.spaceUnder > td {
+    padding-bottom: 1em;
+}
+
+table#talks {
+  border-collapse: collapse;
+}
+
+/* zebra striping */
+table#talks tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+table#talks tr td {
+  padding: 0.7em;
+}
+
+.leftText
+{
+    text-align:left;
+}
