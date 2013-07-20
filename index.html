@@ -76,7 +76,7 @@ Graham Sellers is the manager of the OpenGL driver team and a software architect
 <td valign="top"><img src="TODO" width="256" height="256" alt="" /></td>
 <td>
 <p class="talkTitle">
-Handling Planetary Scale Datasets
+Rendering Gotchas in Planetary Scale Worlds
 </p>
 <p>
 <a href="http://www.seas.upenn.edu/~pcozzi/" target="_blank">Patrick Cozzi</a><br />
@@ -95,7 +95,7 @@ Downloads TODO
 Bio
 </p>
 <p>
-Patrick Cozzi is coauthor of 3D Engine Design for Virtual Globes, coeditor of OpenGL Insights, and a contributor to GPU Pro 4, Game Engine Gems 2, and SIGGRAPH. At Analytical Graphics, Inc., he leads the graphics development of Cesium, a WebGL virtual globe. He teaches GPU Programming and Architecture at the University of Pennsylvania, where he received a master's degree in computer science.
+Patrick Cozzi is the Principal Graphics Architect at Analytical Graphics, Inc., where he leads the graphics development of OpenGL and WebGL virtual globes.  He is coauthor of 3D Engine Design for Virtual Globes and coeditor of OpenGL Insights.  Patrick teaches GPU Programming and Architecture at the University of Pennsylvania, where he received a master's degree in computer science.
 </p>
 </td>
 </tr>
@@ -172,7 +172,7 @@ Joel de Vahl works as a Senior Engine Programmer at Avalanche Studios, focusing 
 Hardware Virtual Texturing and Demo
 </p>
 <p>
-<a href="https://twitter.com/grahamsellers" target="_blank">Graham Sellers</a> and <a href="http://www.jurajobert.com/" target="_blank">Juraj Obert</a><br />
+<a href="https://twitter.com/grahamsellers" target="_blank">Graham Sellers</a><br />
 <a href="http://www.amd.com/" target="_blank">Advanced Micro Devices, Inc.</a>
 </p>
 <p>
@@ -190,16 +190,13 @@ Bios
 <p>
 Graham Sellers is the manager of the OpenGL driver team and a software architect at AMD. He represents AMD at the OpenGL ARB and Khronos Group and is responsible for the design and delivery of new features in AMD's OpenGL implementation, including extensions and new versions of the OpenGL API. He has authored over 20 OpenGL extensions, many of which are now part of the core API specification. He is also co-author of the OpenGL SuperBible and the OpenGL Programming Guide. He holds a Masters' degree in Engineering from the University of Southampton, UK.
 </p>
-<p>
-Juraj Obert bio TODO
-</p>
 </td>
 </tr>
 
 <!-- ====================================================================== -->
 
 <tr>
-<td valign="top"><img src="TODO" width="256" height="256" alt="" /></td>
+<td valign="top"><img src="images/HighQualitySoftwareandHardwareVirtualTextures.png" width="256" height="256" alt="" /></td>
 <td>
 <p class="talkTitle">
 High Quality Software and Hardware Virtual Textures
@@ -209,7 +206,16 @@ High Quality Software and Hardware Virtual Textures
 <a href="http://www.idsoftware.com/" target="_blank">Id Software, LLC</a>
 </p>
 <p>
-Abstract TODO
+Modern simulations increasingly require the display of very large, uniquely textured worlds at interactive rates. In large outdoor environments and also high detail indoor environments, like those displayed in the computer game RAGE, the unique texture detail requires significant storage and bandwidth. Virtual textures reduce the cost of unique texture data by providing a sparse representation which does not require all of the data to be present for rendering, while leaving the majority of the texture data in highly compressed form on secondary storage.
+</p>
+<p>
+A virtual texture is divided into small pages that are loaded into a pool of resident physical pages as required for rendering. In RAGE these small pages are square blocks of 128 x 128 texels and the pool with physical pages is a fully resident texture that is logically subdivided into such square blocks of texels. While a virtual texture can be very large (say a million pages) and is never fully resident in video memory, the texture that holds the pool of physical pages is fully resident but much smaller (typically only 4096 x 4096 texels or 1024 pages). Virtual texture pages are mapped to physical texture pages, and during rendering virtual addresses need to be translated to physical ones.
+</p>
+<p>
+Virtual textures differ from other forms of virtual memory because first, it is possible to fall back to slightly blurrier data without stalling execution, and second, lossy compression of the data is perfectly acceptable for most uses. Implementations of software virtual textures exploit these key differences between virtual textures and other forms of virtual memory to maintain performance and reduce memory requirements at the cost of quality. Implementing virtual textures without special hardware support is challenging and inevitably comes down to finding the right trade between performance, memory requirements, and quality. While the implementation of software virtual textures in RAGE emphasized performance, the visual fidelity of the virtual textures in RAGE can be improved in several ways that trade performance and memory for quality.
+</p>
+<p>
+When RAGE first shipped there was no special hardware support for virtual textures. The virtual to physical address translation had to be implemented in a fragment program through page table and mapping textures. The latest AMD graphics hardware, however, supports hardware virtual textures also known as Partially Resident Textures (PRTs). Instead of using page table and mapping textures the hardware can perform the virtual to physical translation using the page tables of the underlying virtual memory system. Hardware virtual textures can further improve the quality of virtual textures but taking advantage of this special hardware comes with its own set of challenges.
 </p>
 <p class="downloads">
 Downloads
