@@ -14,7 +14,10 @@ div.page
 	margin-top:8px;
 	margin-left:auto; 
 	margin-right:auto;
-	padding:64px;
+	padding-left:64px;
+	padding-right:64px;
+	padding-top:32px;
+	padding-bottom:32px;
 	width:800px;
        background-color:#FFFFFF;
 	border-style:solid;
@@ -34,6 +37,7 @@ img.title
 h1{ 
   font-family: Calibria;
   color: #5482AB;
+  text-align:center;
 }
 
 h2{ 
