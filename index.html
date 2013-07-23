@@ -80,7 +80,7 @@ Graham Sellers is the manager of the OpenGL driver team and a software architect
 <td valign="top"><img src="images/RenderingGotchasinPlanetaryScaleWorlds.png" width="256" height="256" alt="" /></td>
 <td>
 <p class="talkTitle">
-Rendering Gotchas in Massive Worlds
+Using Multiple Frustums for Massive Worlds
 </p>
 <p>
 <a href="http://www.seas.upenn.edu/~pcozzi/" target="_blank">Patrick Cozzi</a><br />
@@ -94,7 +94,7 @@ Downloads
 </p>
 <p>
 <ul>
-   <li><a href="downloads/Cozzi/Cozzi.pptx">Slides (.pptx)</a> (TODO MB)</li>
+   <li><a href="downloads/Cozzi/Cozzi.pptx">Slides (.pptx)</a> (22.2 MB)</li>
    <li><a href="downloads/Cozzi/zfighting.wmv">Z-Fighting video (.wmv)</a> (4.8 MB)</li>
    <li><a href="downloads/Cozzi/jitter.wmv">Jittering video (.wmv)</a> (9.9 MB)</li>
    <li><a href="downloads/Cozzi/zfightingcauses.wmv">Z-Fighting causes video (.wmv)</a> (5.3 MB)</li>
@@ -103,7 +103,7 @@ Downloads
 </ul>
 </p>
 <p class="bio">
-Bio
+In massive worlds, precision problems manifest themselves as rendering artifacts.  Vertex transform precision creates jittering and depth buffer precision creates z-fighting.  In this talk, we present the approach and implementation used to eliminate z-fighting at Analytical Graphics, Inc.  By partitioning the scene into multiple frustums, we have enough depth precision for our virtual globe and space applications that require massive view distances.  However, a careful implementation is required to achieve acceptable performance and minimize new artifacts.
 </p>
 <p>
 Patrick Cozzi is the Principal Graphics Architect at Analytical Graphics, Inc., where he leads the graphics development of OpenGL and WebGL virtual globes.  He is coauthor of 3D Engine Design for Virtual Globes and coeditor of OpenGL Insights.  Patrick teaches GPU Programming and Architecture at the University of Pennsylvania, where he received a master's degree in computer science.
@@ -196,7 +196,7 @@ Downloads
 Downloads TODO
 </p>
 <p class="bio">
-Bios
+Bio
 </p>
 <p>
 Graham Sellers is the manager of the OpenGL driver team and a software architect at AMD. He represents AMD at the OpenGL ARB and Khronos Group and is responsible for the design and delivery of new features in AMD's OpenGL implementation, including extensions and new versions of the OpenGL API. He has authored over 20 OpenGL extensions, many of which are now part of the core API specification. He is also co-author of the OpenGL SuperBible and the OpenGL Programming Guide. He holds a Masters' degree in Engineering from the University of Southampton, UK.
