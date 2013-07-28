@@ -1,4 +1,1 @@
-virtualworlds
-=============
-
-Website for the Rendering Massive Virtual Worlds course at SIGGRAPH 2013
+Website for the [Rendering Massive Virtual Worlds](http://cesium.agi.com/massiveworlds/) course at SIGGRAPH 2013
